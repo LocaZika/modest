@@ -1,0 +1,6 @@
+margin: 36.5rem
+padding:1.5rem
+content-block{
+    margin: 80px 350px;
+    padding: 0 30px;
+}

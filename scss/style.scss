@@ -1,10 +1,117 @@
 @import 'variable';
 @import 'reset';
+@import 'param';
 
-
-@mixin flex($justify, $align) {
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
+.container{
+  max-width: 100%;
 }
-
+nav{
+  width: 100%;
+  height: 8rem;
+  @include flex(space-between, center);
+  background: var(--black-nav);
+  .brand{
+    margin-left: 36.5rem;
+    &__logo{
+      padding: 1.5rem;
+    }
+  }
+  .navbar{
+    margin-right: 36.5rem;
+    &>li{
+      display: inline-block;
+    }
+    &__link{
+      line-height: 8rem;
+      padding: .8rem 1rem;
+      font-size: 14px;
+      color: var(--gray-nav);
+      border: 2px solid transparent;
+      &:hover{
+        border-color: var(--gray-hover);
+        border-radius: 5px;
+      }
+  }
+    &--active{
+      border: 2px solid var(--green-active);
+      border-radius: 5px;
+      color: var(--green-active);
+    }
+  }
+}
+#welcome{
+  @extend %pos-relative;
+  @include flex(unset, center);
+  height: 66rem;
+  background: var(--gray-blue-bg) url(../img/bg/root-bg.jpg) no-repeat center center/cover;
+}
+.welcome{
+  @extend %pos-absolute, %block-content;
+  &__desc{
+    width: 50%;
+    &>h2 {
+      color: var(--white);
+      margin-bottom: 3rem;
+    }
+  
+    &>p {
+      color: var(--gray-text);
+      line-height: 2.4rem;
+      margin-bottom: 3.5rem;
+    }
+    &>a {
+      @extend %link;
+      &:hover{
+        background-color: var(--green-active);
+        border-color: var(--green-active);
+      }
+      &:nth-child(3) {
+        margin-right: .5rem;
+      }
+      &:nth-child(4){
+        margin-left: .5rem;
+      }
+    }
+  }
+}
+#about{
+  border: 1px solid #dde1e4;
+}
+.about{
+  @extend %block-content;
+  &>h2{
+    border-left: 10px solid var(--gray-border);
+    padding-left: 1.5rem;
+    margin-bottom: 6rem;
+  }
+}
+.about-content{
+  @include flex(unset, unset);
+  &-desc{
+    width: 60%;
+    &__prag{
+      margin-bottom: 3.5rem;
+    }
+    &__socials{
+      margin-top: 1.5rem;
+      &>ul>li{
+        display: inline-block;
+        background-color: #c8cdd0;
+        height: 6rem;
+        width: 6rem;
+        text-align: center;
+        &>a{
+          line-height: 6rem;
+          padding: 2rem;
+        }
+        &:hover{
+          background-color: #d0d5d9;
+        }
+      }
+      
+    }
+  }
+  &__list {
+    width: 40%;
+  }
+}

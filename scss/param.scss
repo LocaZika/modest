@@ -1,0 +1,26 @@
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+%block-content {
+    margin: 8rem 35rem;
+    padding: 0 3rem;
+}
+
+%pos-relative {
+    position: relative;
+}
+
+%pos-absolute {
+    position: absolute;
+}
+%link {
+    padding: 1.5rem 2rem;
+    text-transform: uppercase;
+    color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 14px;
+}
