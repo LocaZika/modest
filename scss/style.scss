@@ -1,7 +1,8 @@
 @import 'variable';
 @import 'reset';
 @import 'param';
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Quattrocento+Sans&display=swap');
 .container{
   max-width: 100%;
 }
@@ -80,9 +81,7 @@ nav{
 .about{
   @extend %block-content;
   &>h2{
-    border-left: 10px solid var(--gray-border);
-    padding-left: 1.5rem;
-    margin-bottom: 6rem;
+    @include title(var(--black-title));
   }
 }
 .about-content{
@@ -91,9 +90,16 @@ nav{
     width: 60%;
     &__prag{
       margin-bottom: 3.5rem;
+      &>p{
+        margin-bottom: 3rem;
+        @extend %font-s16;
+        &>span{
+          font-weight: 700;
+        }
+      }
     }
     &__socials{
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       &>ul>li{
         display: inline-block;
         background-color: #c8cdd0;
@@ -113,5 +119,58 @@ nav{
   }
   &__list {
     width: 40%;
+    &>ol{
+      counter-reset: item;
+      &>li{
+        counter-increment: item;
+        margin-bottom: 6rem;
+        display: flex;
+        &::before{
+          content: '0'counter(item);
+          font-size: 20px;
+          color: var(--white);
+          text-align: center;
+          margin-right: 2rem;
+          padding: 3rem;
+          background-color: var(--green-active);
+          display: inline-block;
+        }
+        &>section{
+          display: inline-block;
+          &>h3{
+            font-size: 18px;
+            margin-bottom: 2rem
+          }
+          &>p{
+            @extend %font-s16;
+          }
+        }
+      }
+    }
+  }
+}
+#team{
+  //height: 65rem;
+}
+.team{
+  @extend %block-content;
+  &>h2{
+    @include title(var(--black-title));
+  }
+  &-members{
+    @include flex(space-between, center);
+    &__member{
+      &>section{
+        padding: 2rem;
+        background-color: var(--gray-border);
+        &>h3{
+          @extend %font-s16;
+          @extend %font-family-Quattrocento;
+        }
+        &>h4{
+          @extend %font-s14;
+        }
+      }
+    }
   }
 }

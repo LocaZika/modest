@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Quattrocento+Sans&display=swap");
 :root {
   --black: #000;
   --white: #fff;
@@ -8,6 +10,7 @@
   --gray-hover: #5b6168;
   --gray-blue-bg: #3a454d;
   --gray-border: #e1e6ea;
+  --black-title: #292f36;
 }
 
 * {
@@ -15,7 +18,7 @@
   padding: 0;
   outline: none;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 a {
@@ -48,7 +51,7 @@ p {
   font-size: 16px;
 }
 
-.about, .welcome {
+.team, .about, .welcome {
   margin: 8rem 35rem;
   padding: 0 3rem;
 }
@@ -69,6 +72,24 @@ p {
   border-radius: 5px;
   background-color: transparent;
   font-size: 14px;
+}
+
+.team-members__member > section > h3, .about-content__list > ol > li > section > p, .about-content-desc__prag > p {
+  font-size: 16px;
+}
+
+.team-members__member > section > h4 {
+  font-size: 14px;
+}
+
+.team-members__member > section > h3, .team > h2, .about > h2 {
+  font-family: "Quattrocento Sans";
+}
+
+.team > h2, .about > h2 {
+  border-left: 10px solid var(--gray-border);
+  padding-left: 1.5rem;
+  margin-bottom: 6rem;
 }
 
 .container {
@@ -148,9 +169,7 @@ nav .navbar--active {
 }
 
 .about > h2 {
-  border-left: 10px solid var(--gray-border);
-  padding-left: 1.5rem;
-  margin-bottom: 6rem;
+  color: var(--black-title);
 }
 
 .about-content {
@@ -164,8 +183,14 @@ nav .navbar--active {
 .about-content-desc__prag {
   margin-bottom: 3.5rem;
 }
+.about-content-desc__prag > p {
+  margin-bottom: 3rem;
+}
+.about-content-desc__prag > p > span {
+  font-weight: 700;
+}
 .about-content-desc__socials {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 .about-content-desc__socials > ul > li {
   display: inline-block;
@@ -183,6 +208,43 @@ nav .navbar--active {
 }
 .about-content__list {
   width: 40%;
+}
+.about-content__list > ol {
+  counter-reset: item;
+}
+.about-content__list > ol > li {
+  counter-increment: item;
+  margin-bottom: 6rem;
+  display: flex;
+}
+.about-content__list > ol > li::before {
+  content: "0" counter(item);
+  font-size: 20px;
+  color: var(--white);
+  text-align: center;
+  margin-right: 2rem;
+  padding: 3rem;
+  background-color: var(--green-active);
+  display: inline-block;
+}
+.about-content__list > ol > li > section {
+  display: inline-block;
+}
+.about-content__list > ol > li > section > h3 {
+  font-size: 18px;
+  margin-bottom: 2rem;
+}
+.team > h2 {
+  color: var(--black-title);
+}
+.team-members {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.team-members__member > section {
+  padding: 2rem;
+  background-color: var(--gray-border);
 }
 
 /*# sourceMappingURL=style.css.map */
