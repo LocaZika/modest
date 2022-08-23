@@ -4,3 +4,12 @@ content-block{
     margin: 80px 350px;
     padding: 0 30px;
 }
+services{
+    padding: 4.5rem 1.7rem
+}
+contact-form{
+    name-email{
+        padding: 7px 10px;
+        
+    }
+}

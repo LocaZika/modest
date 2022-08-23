@@ -63,8 +63,7 @@ nav{
     &>a {
       @extend %link;
       &:hover{
-        background-color: var(--green-active);
-        border-color: var(--green-active);
+        @extend %link-hover;
       }
       &:nth-child(3) {
         margin-right: .5rem;
@@ -149,9 +148,6 @@ nav{
     }
   }
 }
-#team{
-  //height: 65rem;
-}
 .team{
   @extend %block-content;
   &>h2{
@@ -159,8 +155,38 @@ nav{
   }
   &-members{
     @include flex(space-between, center);
-    &__member{
+    &-member{
+      position: relative;
+      &:hover > &__mask{
+        visibility: visible;
+      }
+      &:hover > section{
+        background-color: var(--gray-blue-bg);
+        color: var(--white);
+      }
+      &__mask{
+        visibility: hidden;
+        position: absolute;
+        width: 26.3rem;
+        height: 30rem;
+        background-color: rgba(255, 255, 255, .4);
+        @include flex(center, center);
+        &>a{
+          height: 5rem;
+          width: 5rem;
+          margin: 1px;
+          background-color: var(--gray-blue-bg);
+          text-align: center;
+          &:hover{
+            background-color: rgb(78, 90, 98);
+          }
+          &>img{
+            padding: 1.5rem;
+          }
+        }
+      }
       &>section{
+        margin-top: -3px;
         padding: 2rem;
         background-color: var(--gray-border);
         &>h3{
@@ -170,6 +196,211 @@ nav{
         &>h4{
           @extend %font-s14;
         }
+      }
+    }
+  }
+}
+#work{
+  background-color: var(--gray-blue-bg);
+}
+.work{
+  @extend %block-content;
+  &-content{
+    @include flex(space-between, unset);
+    flex-wrap: wrap;
+    &__img{
+      height: 26.5rem;
+      width: 36rem;
+      cursor: pointer;
+      &>.mask {
+        visibility: hidden;
+      }
+      &:hover > .mask {
+        visibility: visible;
+      }
+      &--pic1 {
+        @include work-bg(pic1);
+      }
+      &--pic2 {
+        @include work-bg(pic2);
+      }
+      &--pic3 {
+        @include work-bg(pic3);
+      }
+      &--pic4 {
+        @include work-bg(pic4);
+      }
+      &--pic5 {
+        @include work-bg(pic5);
+      }
+      &--pic6 {
+        @include work-bg(pic6);
+      }
+    }
+  }
+  &>h2{
+    @include title(var(--white));
+    border-color: #4e5a62;
+  }
+  &__showmore{
+    width: 100%;
+    text-align: center;
+    
+    background-color: var(--gray-blue-bg);
+    &>a{
+      @extend %font-s14;
+      color: var(--white);
+      border: 2px solid var(--white);
+      border-radius: 5px;
+      padding: 1.5rem 2rem;
+      line-height: 6rem;
+      &:hover{
+        @extend %link-hover;
+      }
+    }
+  }
+}
+.services{
+  @extend %block-content;
+  &>h2{
+    @include title(var(--black));
+  }
+  &-content{
+    @include flex(space-between, unset);
+    flex-wrap: wrap;
+    &__desc{
+      flex: 1 0 25%;
+      text-align: center;
+      padding: 4.5rem 1.7rem;
+      &>h3{
+        font-size: 17px;
+        color: #292f36;
+        padding: 3rem 0;
+      }
+      &>p{
+        @extend %font-s14;
+        color: #8d8f92;
+        line-height: 30px;
+      }
+    }
+  }
+}
+#features{
+  background-color: var(--gray-blue-bg);
+}
+.features{
+  @extend %block-content;
+  &>h2{
+    @include title(var(--white));
+    border-color: #4e5a62;
+  }
+  &-list{
+    @include flex(space-between, unset);
+    &__desc{
+      &>h3{
+        padding: 3rem 0;
+        font-size: 18px;
+        color: var(--white);
+      }
+      &>p{
+        color: var(--white);
+        @extend %font-s16;
+        line-height: 30px;
+      }
+    }
+  }
+}
+#contact{
+  position: relative;
+  &__map {
+      position: absolute;
+      width: 100%;
+      height: 350px;
+      left: 0;
+      &>iframe {
+        width: 100%;
+        height: 100%;
+      }
+  }
+}
+.contact{
+  @extend %block-content;
+  &>h2{
+    @include title(var(--black));
+  }
+  &-info{
+    margin-top: 47rem;
+    display: flex;
+    position: relative;
+    &__desc{
+      width: 50%;
+      &>h3{
+        font-size: 20px;
+        margin-bottom: 4rem;
+      }
+      &>p{
+        line-height: 30px;
+        margin-bottom: 10px;
+        @extend %font-s16;
+      }
+    }
+    &-form{
+      margin-left: 50%;
+      position: absolute;
+      padding: 20px;
+      background-color: var(--white);
+      top: -190px;
+      &-customer{
+        display: flex;
+        &__name{
+          @extend %contact-form;
+          &>input[type="text"]{
+            @extend %contact-input;
+          }
+        }
+        &__email{
+          @extend %contact-form;
+          &>input[type="text"] {
+            @extend %contact-input;
+          }
+        }
+      }
+      &__message{
+        @extend %contact-form;
+        &>label{
+          @extend %d-block;
+        }
+        &>textarea{
+          @extend %contact-textarea;
+          width: 100%;
+          resize: none;
+        }
+        &>button{
+          @extend %d-block;
+          text-transform: uppercase;
+          @extend %font-s14;
+          color: var(--white);
+          background-color: var(--green-active);
+          border: none;
+          border-radius: 5px;
+          padding: 20px 30px;
+        }
+      }
+    }
+  }
+}
+.footer{
+  background-color: var(--gray-blue-bg);
+  &-content{
+    @extend %block-content;
+    @include flex(space-between, unset);
+    padding: 4rem 3rem;
+    &>p{
+      color: var(--white);
+    }
+    &__socials{
+      &>a{
+        padding: 1rem;
       }
     }
   }
